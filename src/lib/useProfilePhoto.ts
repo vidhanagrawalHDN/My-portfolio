@@ -3,10 +3,10 @@ import { getProfilePhoto, saveProfilePhoto } from './storageService';
 import { personalInfo } from '../data/portfolioData';
 
 export function useProfilePhoto() {
-  const [photo, setPhoto] = useState<string>(personalInfo.photo || '/vidhan-photo.png');
+  // Set the default directly to your new photo:
+  const [photo, setPhoto] = useState<string>('/profile.png');
 
   useEffect(() => {
-    // Load stored photo on mount
     getProfilePhoto().then((stored) => {
       if (stored) {
         setPhoto(stored);
@@ -31,7 +31,6 @@ export function useProfilePhoto() {
         if (result) {
           setPhoto(result);
           await saveProfilePhoto(result);
-          // dispatch custom event for intra-tab synchronization
           window.dispatchEvent(new CustomEvent('photo-updated', { detail: result }));
           resolve(true);
         } else {
@@ -45,8 +44,8 @@ export function useProfilePhoto() {
 
   const resetPhoto = () => {
     localStorage.removeItem('vidhan_custom_photo');
-    setPhoto('/vidhan-photo.png');
-    window.dispatchEvent(new CustomEvent('photo-updated', { detail: '/vidhan-photo.png' }));
+    setPhoto('/profile.png');
+    window.dispatchEvent(new CustomEvent('photo-updated', { detail: '/profile.png' }));
   };
 
   return { photo, updatePhoto, resetPhoto };
