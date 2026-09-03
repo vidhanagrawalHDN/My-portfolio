@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { X, Printer, Download, Mail, Phone, MapPin, Github, Linkedin, Camera, RefreshCw, Upload, CheckCircle2 } from 'lucide-react';
+import React from 'react';
+import { X, Printer, Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
 import { personalInfo, projects, experienceData, certificates, educationList } from '../data/portfolioData';
 import { useProfilePhoto } from '../lib/useProfilePhoto';
 
@@ -9,19 +9,7 @@ interface ResumeModalProps {
 }
 
 export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => {
-  const { photo, updatePhoto, resetPhoto } = useProfilePhoto();
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      updatePhoto(file);
-    }
-  };
-
-  const handleResetPhoto = () => {
-    resetPhoto();
-  };
+  const { photo } = useProfilePhoto();
 
   if (!isOpen) return null;
 
@@ -80,7 +68,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             
             {/* Left: Professional Photo */}
             <div className="flex items-start gap-4">
-              <div className="relative group shrink-0">
+              <div className="shrink-0">
                 <div className="w-28 h-36 sm:w-32 sm:h-40 border-2 border-black bg-[#F5F5F4] overflow-hidden">
                   <img
                     id="cv-profile-photo"
@@ -89,43 +77,10 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                     className="w-full h-full object-cover object-top"
                     referrerPolicy="no-referrer"
                     onError={(e) => {
-                      // fallback to svg if png fails
-                      (e.target as HTMLImageElement).src = '/vidhan-photo.svg';
+                      (e.target as HTMLImageElement).src = '/profile.png';
                     }}
                   />
                 </div>
-
-                {/* Photo Controls (Hidden during print) */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1.5 print:hidden p-2 text-center">
-                  <button
-                    type="button"
-                    onClick={() => fileInputRef.current?.click()}
-                    className="px-2 py-1 bg-white text-black text-[10px] font-mono font-bold uppercase tracking-wider border border-black hover:bg-black hover:text-white transition-colors cursor-pointer flex items-center gap-1"
-                    title="Upload photo from device"
-                  >
-                    <Upload className="w-3 h-3" />
-                    <span>Upload</span>
-                  </button>
-                  {photo !== (personalInfo.photo || '/vidhan-photo.svg') && (
-                    <button
-                      type="button"
-                      onClick={handleResetPhoto}
-                      className="px-2 py-0.5 bg-[#F5F5F4] text-black text-[9px] font-mono border border-black hover:bg-black hover:text-white transition-colors cursor-pointer flex items-center gap-1"
-                      title="Reset to default portrait"
-                    >
-                      <RefreshCw className="w-2.5 h-2.5" />
-                      <span>Reset</span>
-                    </button>
-                  )}
-                </div>
-
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept="image/*"
-                  onChange={handlePhotoUpload}
-                  className="hidden"
-                />
               </div>
 
               {/* Personal Info & Title */}
