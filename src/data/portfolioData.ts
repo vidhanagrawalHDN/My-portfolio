@@ -2,7 +2,7 @@ import { Project, Certificate, Education, Experience, SkillCategory } from '../t
 
 export const personalInfo = {
   name: "Vidhan Agrawal",
-  photo: '/My photo Professional.png',
+  photo: '/profile.png',
   title: "Full-Stack Developer & Data Science Enthusiast",
   subheading: "B.Tech in Computer Science & Engineering (CGPA: 9.3) at Lovely Professional University. Passionate about building robust web ecosystems, neural audio pipelines, and data-driven dashboards.",
   email: "vidhanagrawal0607@gmail.com",
