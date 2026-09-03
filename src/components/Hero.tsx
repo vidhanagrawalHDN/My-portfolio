@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { 
   Mail, 
   Phone, 
@@ -12,9 +12,7 @@ import {
   Copy, 
   Check, 
   ExternalLink,
-  GraduationCap,
-  Upload,
-  Camera
+  GraduationCap
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import { useProfilePhoto } from '../lib/useProfilePhoto';
@@ -25,15 +23,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
   const [copiedType, setCopiedType] = useState<string | null>(null);
-  const { photo, updatePhoto } = useProfilePhoto();
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleHeroPhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      updatePhoto(file);
-    }
-  };
+  const { photo } = useProfilePhoto();
 
   const handleCopy = (text: string, type: string) => {
     navigator.clipboard.writeText(text);
@@ -192,39 +182,24 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
 
           </div>
 
-          {/* Right Visual Card Column - Editorial Aside Style */}
+          {/* Right Visual Card Column */}
           <div className="lg:col-span-6 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-xl bg-[#F5F5F4] border-2 border-black p-6 sm:p-8 space-y-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
               
               {/* Profile Card Header */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b-2 border-black pb-6 gap-4">
                 <div className="flex items-center gap-4 sm:gap-5">
-                  <div 
-                    className="relative group w-28 h-36 sm:w-36 sm:h-44 border-2 border-black bg-white overflow-hidden shrink-0 shadow-sm cursor-pointer" 
-                    onClick={() => fileInputRef.current?.click()} 
-                    title="Click to update or set custom photo"
-                  >
+                  <div className="w-28 h-36 sm:w-36 sm:h-44 border-2 border-black bg-white overflow-hidden shrink-0 shadow-sm">
                     <img 
                       src={photo} 
                       alt={personalInfo.name} 
                       className="w-full h-full object-cover object-top"
                       referrerPolicy="no-referrer"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = '/vidhan-photo.svg';
+                        (e.target as HTMLImageElement).src = '/profile.png';
                       }}
                     />
-                    <div className="absolute inset-0 bg-black/65 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1.5 text-white">
-                      <Camera className="w-5 h-5" />
-                      <span className="text-[9px] uppercase font-bold tracking-wider">Update Photo</span>
-                    </div>
                   </div>
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/*"
-                    onChange={handleHeroPhotoUpload}
-                    className="hidden"
-                  />
                   <div className="space-y-1.5">
                     <h2 className="font-serif italic text-2xl sm:text-3xl font-bold text-[#121212] leading-tight">{personalInfo.name}</h2>
                     <p className="text-xs uppercase font-bold tracking-widest opacity-70">Full-Stack & Data Engineer</p>
