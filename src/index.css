@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Newsreader", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  /* Hide non-print containers when printing modal */
+  nav, footer, #about, #projects, #experience, #skills, #education, #certificates, #contact {
+    display: none !important;
+  }
+
+  .print\\:hidden {
+    display: none !important;
+  }
+
+  @page {
+    margin: 1cm;
+    size: auto;
+  }
+}
+

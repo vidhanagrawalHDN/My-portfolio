@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2EFE9" />
+      <stop offset="60%" stop-color="#E8E2D7" />
+      <stop offset="100%" stop-color="#DDD5C7" />
+    </linearGradient>
+
+    <!-- Wall shadow on the right -->
+    <linearGradient id="wallShadow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E8E2D7" stop-opacity="0" />
+      <stop offset="100%" stop-color="#B8AFA0" stop-opacity="0.45" />
+    </linearGradient>
+
+    <!-- Navy Suit Gradient -->
+    <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#24375A" />
+      <stop offset="50%" stop-color="#1B2B48" />
+      <stop offset="100%" stop-color="#121D32" />
+    </linearGradient>
+
+    <!-- Tie Gradient -->
+    <linearGradient id="tieGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1D2A44" />
+      <stop offset="100%" stop-color="#0F1829" />
+    </linearGradient>
+
+    <!-- Skin Tones -->
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C99B7D" />
+      <stop offset="50%" stop-color="#BA8869" />
+      <stop offset="100%" stop-color="#A27153" />
+    </linearGradient>
+
+    <linearGradient id="neckGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#A57356" />
+      <stop offset="100%" stop-color="#845439" />
+    </linearGradient>
+
+    <!-- Anti-Reflective Lens Glare -->
+    <linearGradient id="lensGlare" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399" stop-opacity="0.55" />
+      <stop offset="50%" stop-color="#10B981" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.1" />
+    </linearGradient>
+
+    <!-- Tie Fan Pattern Element -->
+    <g id="tieFan">
+      <path d="M 0 0 L -4 -7 A 6 6 0 0 1 4 -7 Z" fill="#F59E0B" />
+      <line x1="0" y1="0" x2="-2" y2="-6" stroke="#D97706" stroke-width="0.7" />
+      <line x1="0" y1="0" x2="0" y2="-6.5" stroke="#D97706" stroke-width="0.7" />
+      <line x1="0" y1="0" x2="2" y2="-6" stroke="#D97706" stroke-width="0.7" />
+    </g>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="500" fill="url(#bgGrad)" />
+  <rect x="250" width="150" height="500" fill="url(#wallShadow)" />
+
+  <!-- Shoulders / Torso Silhouette -->
+  <!-- Navy Suit Coat -->
+  <path d="M 40 500 L 70 330 Q 110 300 155 295 L 200 360 L 245 295 Q 290 300 330 330 L 360 500 Z" fill="url(#suitGrad)" />
+  
+  <!-- Suit Shoulders & Body Contours -->
+  <path d="M 0 500 L 40 370 Q 110 310 160 300 L 165 500 Z" fill="#182740" />
+  <path d="M 400 500 L 360 370 Q 290 310 240 300 L 235 500 Z" fill="#121D32" />
+
+  <!-- Crisp White Shirt -->
+  <polygon points="160,295 240,295 225,395 175,395" fill="#FAFAFA" />
+  <!-- Shirt Collar Points -->
+  <polygon points="152,295 185,345 200,310 175,285" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" />
+  <polygon points="248,295 215,345 200,310 225,285" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1" />
+
+  <!-- Necktie -->
+  <polygon points="192,310 208,310 204,330 196,330" fill="#0F1829" />
+  <!-- Tie Knot -->
+  <path d="M 190 320 L 210 320 L 218 500 L 182 500 Z" fill="url(#tieGrad)" />
+
+  <!-- Gold/Orange Fan Patterns on Tie -->
+  <use href="#tieFan" x="200" y="355" />
+  <use href="#tieFan" x="202" y="395" />
+  <use href="#tieFan" x="198" y="435" />
+  <use href="#tieFan" x="203" y="475" />
+
+  <!-- Suit Lapels -->
+  <!-- Left Lapel -->
+  <polygon points="90,340 155,295 188,380 145,430 135,500 90,500" fill="#203250" />
+  <path d="M 155 295 L 188 380 L 145 430" stroke="#0E1726" stroke-width="2" fill="none" />
+  <!-- Right Lapel -->
+  <polygon points="310,340 245,295 212,380 255,430 265,500 310,500" fill="#182740" />
+  <path d="M 245 295 L 212 380 L 255 430" stroke="#0E1726" stroke-width="2" fill="none" />
+
+  <!-- Neck -->
+  <path d="M 172 230 L 172 295 Q 200 305 228 295 L 228 230 Z" fill="url(#neckGrad)" />
+
+  <!-- Head Base -->
+  <ellipse cx="200" cy="205" rx="72" ry="92" fill="url(#skinGrad)" />
+
+  <!-- Ears -->
+  <ellipse cx="128" cy="205" rx="10" ry="18" fill="#B78465" />
+  <ellipse cx="272" cy="205" rx="10" ry="18" fill="#B78465" />
+
+  <!-- Hair -->
+  <!-- Back / Volume -->
+  <path d="M 132 185 Q 125 105 200 100 Q 275 105 268 185 Q 245 125 200 120 Q 155 125 132 185 Z" fill="#1C1816" />
+  <!-- Hair Parted Side Swept Texture -->
+  <path d="M 130 170 Q 140 110 200 105 Q 260 110 270 170 C 265 145 250 125 215 125 C 175 125 145 145 130 170 Z" fill="#110E0D" />
+  <path d="M 145 135 Q 185 115 225 130 Q 255 135 265 155 Q 240 130 200 130 Q 165 130 145 135 Z" fill="#2E2420" />
+
+  <!-- Eyebrows -->
+  <path d="M 152 170 Q 170 166 182 172" stroke="#1F1B18" stroke-width="4.5" stroke-linecap="round" fill="none" />
+  <path d="M 218 172 Q 230 166 248 170" stroke="#1F1B18" stroke-width="4.5" stroke-linecap="round" fill="none" />
+
+  <!-- Eyes -->
+  <ellipse cx="167" cy="184" rx="10" ry="6" fill="#FFFFFF" />
+  <circle cx="167" cy="184" r="5" fill="#231B17" />
+  <circle cx="165" cy="182" r="1.5" fill="#FFFFFF" />
+
+  <ellipse cx="233" cy="184" rx="10" ry="6" fill="#FFFFFF" />
+  <circle cx="233" cy="184" r="5" fill="#231B17" />
+  <circle cx="231" cy="182" r="1.5" fill="#FFFFFF" />
+
+  <!-- Nose -->
+  <path d="M 197 178 L 195 210 Q 192 222 200 223 Q 208 222 205 210 L 203 178" stroke="#8E5E41" stroke-width="1.8" fill="none" />
+  <ellipse cx="193" cy="221" rx="3.5" ry="2" fill="#7D4F35" />
+  <ellipse cx="207" cy="221" rx="3.5" ry="2" fill="#7D4F35" />
+
+  <!-- Moustache (Neat, Trimmed) -->
+  <path d="M 183 234 Q 200 231 217 234 Q 208 241 200 236 Q 192 241 183 234 Z" fill="#1C1816" />
+
+  <!-- Lips -->
+  <path d="M 185 247 Q 200 249 215 247" stroke="#8F5943" stroke-width="2.5" stroke-linecap="round" fill="none" />
+  <path d="M 188 252 Q 200 256 212 252" stroke="#A86A50" stroke-width="2" stroke-linecap="round" fill="none" />
+
+  <!-- Chin Stubble / Shadow -->
+  <path d="M 192 268 Q 200 270 208 268" stroke="#75472F" stroke-width="3" stroke-linecap="round" opacity="0.4" fill="none" />
+
+  <!-- TRANSPARENT CLEAR SPECTACLES (Signature Feature) -->
+  <!-- Left Frame -->
+  <rect x="145" y="166" width="46" height="34" rx="7" fill="none" stroke="#D1D5DB" stroke-width="3" opacity="0.85" />
+  <rect x="146" y="167" width="44" height="32" rx="6" fill="#FFFFFF" opacity="0.12" />
+
+  <!-- Right Frame -->
+  <rect x="209" y="166" width="46" height="34" rx="7" fill="none" stroke="#D1D5DB" stroke-width="3" opacity="0.85" />
+  <rect x="210" y="167" width="44" height="32" rx="6" fill="#FFFFFF" opacity="0.12" />
+
+  <!-- Spectacles Bridge -->
+  <path d="M 191 176 Q 200 173 209 176" stroke="#D1D5DB" stroke-width="3" fill="none" opacity="0.9" />
+  <!-- Spectacle Hinges / Temples -->
+  <line x1="145" y1="174" x2="128" y2="178" stroke="#D1D5DB" stroke-width="2.5" opacity="0.8" />
+  <line x1="255" y1="174" x2="272" y2="178" stroke="#D1D5DB" stroke-width="2.5" opacity="0.8" />
+
+  <!-- Green Anti-Reflective Lens Glare (Top-left of left frame / right frame as in photo) -->
+  <path d="M 214 172 L 232 172 L 226 186 L 214 186 Z" fill="url(#lensGlare)" />
+  <circle cx="222" cy="177" r="3.5" fill="#34D399" opacity="0.6" />
+
+</svg>
